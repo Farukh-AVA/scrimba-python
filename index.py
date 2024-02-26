@@ -1,19 +1,22 @@
-sales_w1 = [7,3,42,19,15,35,9]
-sales_w2 = [12,4,26,10,7,28]
-sales = []
+#Sets - Exercise
 
-w2_day7 = input('Please input number of lemonade sold: ')
+#1. Check if ‘Eric’ and ‘John’ exist in friends
+#2. combine or add the two sets 
+#3. Find names that are in both sets
+#4. find names that are only in friends
+#5. Show only the names who only appear in one of the lists
+#6. Create a new cars-list without duplicates
 
-sales_w2.append(int(w2_day7)); 
-
-sales_w1.extend(sales_w2)
-
-sales = list(sales_w1)
-
-max_earned = max(sales)
-min_earned = min(sales)
-total_earned = sum(sales)
-print(max_earned)
-print(min_earned)
-print(total_earned) 
-
+friends = {'John','Michael','Terry','Eric','Graham'}
+my_friends = {'Reg','Loretta','Colin','John','Graham'}
+cars =['900','420','V70','911','996','V90','911','911','S','328','900']
+print('Eric' in friends and 'John' in friends)
+print(friends.union(my_friends))
+print(friends.intersection(my_friends))
+print(friends.difference(my_friends))
+friends_dif = friends.difference(my_friends)
+my_friends_dif = my_friends.difference(friends)
+print(friends_dif.union(my_friends_dif))
+print(friends.symmetric_difference(my_friends))
+cars_list = list(set(cars))
+print(cars_list)
