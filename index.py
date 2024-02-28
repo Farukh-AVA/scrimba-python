@@ -1,22 +1,25 @@
-#Sets - Exercise
+print('if elif else - Exercise')
+# Create a calculator which handles +,-,*,/ and outputs answer based on the mode/ operator used
+# Hint: use 3 separate inputs 
+# Bonus: Extend functionality with extra mode so it also does celsius to fahrenheit conversion
+# formula is: temp in C*9/5 + 32 = temp in f
 
-#1. Check if ‘Eric’ and ‘John’ exist in friends
-#2. combine or add the two sets 
-#3. Find names that are in both sets
-#4. find names that are only in friends
-#5. Show only the names who only appear in one of the lists
-#6. Create a new cars-list without duplicates
-
-friends = {'John','Michael','Terry','Eric','Graham'}
-my_friends = {'Reg','Loretta','Colin','John','Graham'}
-cars =['900','420','V70','911','996','V90','911','911','S','328','900']
-print('Eric' in friends and 'John' in friends)
-print(friends.union(my_friends))
-print(friends.intersection(my_friends))
-print(friends.difference(my_friends))
-friends_dif = friends.difference(my_friends)
-my_friends_dif = my_friends.difference(friends)
-print(friends_dif.union(my_friends_dif))
-print(friends.symmetric_difference(my_friends))
-cars_list = list(set(cars))
-print(cars_list)
+def calculator(num_1 = 0, num_2 = 0, operator=""):
+    if operator == "+":
+        return num_1 + num_2
+    elif operator == "-":
+        return num_1 - num_2
+    elif operator == "*":
+        return num_1 * num_2    
+    elif operator == "/":
+        return num_1 / num_2
+    else:
+        return num_1*9/5 +32 
+        
+        
+num_1 = input('Please enter num 1: ')
+num_2 = input('Please enter num 2: ')
+operator  = input('Please enter operator') 
+        
+result = calculator(int(num_1), int(num_2), operator)           
+print(result)
