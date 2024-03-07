@@ -15,21 +15,25 @@ antiques = {'name':'Antique Shop','french castle':400, 'wooden grail':3, 'scythe
 pet_shop = {'name':'Pet Shop','blue parrot':10, 'white rabbit':5, 'newt': 2}
 
 all_shops = [freelancers,antiques,pet_shop]
-
+purse = 1000
+total_cost = 0
 
 #create an empty shopping cart
 cart = {}
-#loop through stores/dicts
+ #loop through stores/dicts
 for shops in all_shops :
-    #print(shops['name'])
     #inputbox  to show what you can buy...capture textstring of what was bought...make lowercase
-    buy_item = input('Welcome to ' + shops['name'] + '! what do you want to buy: '+ str(shops))
+    buy_item = input('Welcome to ' + shops['name'] + '! what do you want to buy: '+ str(shops)).lower()
     if buy_item in shops:
-        #cart.update(shops.pop(buy_item))
-        cart.update({buy_item:shops.pop(buy_item)})
+        key = buy_item
+        value =  shops.pop(buy_item)
+        cart.update({key:value})
+        total_cost += int(value) 
+    elif buy_item == 'exit':
+        break    
     else:
         continue        
-
-    #update the cart
-    #cart.update({insert KEYVAL:VALUE}) # use pop...
-print(f'You Purchased {cart} Today it is all free. Have a nice day of mayhem!') 
+cart_list = ', '.join(list(cart.keys()))
+purse -= total_cost
+print(f'You Purchased {cart_list}. Today it is all free. Have a nice day of mayhem!') 
+print(f'Your total cost: {total_cost}. You have {purse} gold left in your purser.')
