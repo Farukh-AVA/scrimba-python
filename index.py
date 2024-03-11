@@ -18,8 +18,18 @@ all_shops = [freelancers,antiques,pet_shop]
 purse = 1000
 total_cost = 0
 
+inventory = {}
+
+for items in freelancers, antiques, pet_shop:
+    inventory.update(items)
+    inventory.pop('name')
+
+print(f'Welcome to departament todays inventory are: {inventory}')  
+print('---------------------------------------------')
+
 #create an empty shopping cart
 cart = {}
+
  #loop through stores/dicts
 for shops in all_shops :
     #inputbox  to show what you can buy...capture textstring of what was bought...make lowercase
@@ -29,11 +39,14 @@ for shops in all_shops :
         value =  shops.pop(buy_item)
         cart.update({key:value})
         total_cost += int(value) 
+        inventory.pop(key)
     elif buy_item == 'exit':
         break    
     else:
         continue        
 cart_list = ', '.join(list(cart.keys()))
 purse -= total_cost
-print(f'You Purchased {cart_list}. Today it is all free. Have a nice day of mayhem!') 
+print(f'You Purchased {cart_list}.') 
 print(f'Your total cost: {total_cost}. You have {purse} gold left in your purser.')
+print('--------------------------------')
+print(f'Welcome to departament inventory after purchase: {inventory}')
